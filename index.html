@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portail SIG - Observatoire National de l'Environnement et du Littoral</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Lien CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- En-tête -->
+  <header class="header">
+    <div class="logo-zone">
+      <img src="images/logo_onel.png" alt="Logo Observatoire" class="logo">
+      <div>
+        <h1>Observatoire National de l'Environnement et du Littoral</h1>
+        <p>Portail SIG pour le suivi environnemental et littoral</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#accueil">Accueil</a>
+      <a href="#cartes">Cartes SIG</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+ <!-- Section accueil -->
+<section id="accueil" class="hero">
+  <div class="hero-content">
+    <h2>Plateforme cartographique de suivi de l’environnement et du littoral</h2>
+
+    <p>
+      Ce portail permet d’accéder aux cartes interactives, tableaux de bord et données SIG
+      de l’Observatoire National de l’Environnement et du Littoral.
+    </p>
+
+    <a href="#cartes" class="btn-primary">Consulter les cartes</a>
+  </div>
+</section>
+
+  <!-- Section cartes -->
+  <section id="cartes" class="section">
+    <h2 class="section-title">Cartes et applications SIG</h2>
+    <p class="section-subtitle">
+      Cliquez sur une carte pour ouvrir le contenu ArcGIS Online dans le portail.
+    </p>
+
+    <div class="cards-container">
+
+      <div class="card" onclick="ouvrirArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/mapviewer/index.html?webmap=29d94c443201440f8e1594879556b580')">
+        <div class="card-icon">🌍</div>
+        <h3>Carte environnementale</h3>
+        <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
+      </div>
+
+      <div class="card" onclick="ouvrirArcGIS('https://www.arcgis.com/apps/mapviewer/index.html?webmap=ID_WEBMAP_LITTORAL')">
+        <div class="card-icon">🌊</div>
+        <h3>Carte du littoral</h3>
+        <p>Visualisation des zones côtières, risques littoraux et occupation du sol.</p>
+      </div>
+
+      <div class="card" onclick="ouvrirListeDashboards()">
+  <div class="card-icon">📊</div>
+  <h3>Tableau de bord</h3>
+  <p>Indicateurs, statistiques et suivi dynamique des données environnementales.</p>
+</div>
+
+      <div class="card" onclick="ouvrirArcGIS('https://www.arcgis.com/apps/instant/ID_APPLICATION')">
+        <div class="card-icon">🗺️</div>
+        <h3>Application cartographique</h3>
+        <p>Application ArcGIS Online dédiée à la consultation et à l’analyse spatiale.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fenêtre ArcGIS Online -->
+  <div id="modalArcGIS" class="modal">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3>Consultation cartographique</h3>
+        <button class="close-btn" onclick="fermerArcGIS()">×</button>
+      </div>
+
+      <iframe id="arcgisFrame" src=""></iframe>
+
+    </div>
+  </div>
+
+  <!-- Section contact -->
+  <section id="contact" class="contact-section">
+    <h2>Contact</h2>
+
+    <div class="contact-box">
+      <p><strong>Observatoire National de l'Environnement et du Littoral</strong></p>
+      <p>Adresse : Nouakchott, Mauritanie</p>
+      <p>Email : contact@onel.mr</p>
+      <p>Téléphone : +222 XX XX XX XX</p>
+
+      <a href="https://www.onel.mr/fr/" target="_blank" class="btn-secondary">
+        Visiter le site officiel
+      </a>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="footer">
+    <p>
+      © 2026 Observatoire National de l'Environnement et du Littoral -
+      Portail SIG
+    </p>
+  </footer>
+
+  <!-- Lien JavaScript -->
+  <script src="script.js"></script>
+
+  <!-- Fenêtre liste des tableaux de bord -->
+<div id="listeDashboardsModal" class="dashboard-list-modal">
+  <div class="dashboard-list-content">
+
+    <div class="dashboard-list-header">
+      <h3>Choisir un tableau de bord</h3>
+      <button onclick="fermerListeDashboards()" class="dashboard-close">×</button>
+    </div>
+
+    <div class="dashboard-options">
+
+      <div class="dashboard-option" onclick="ouvrirDashboardArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/dashboards/4aa72858233e472ca44e899e8ceb0557', 'Suivi environnemental')">
+        <div class="dashboard-option-icon">🌍</div>
+        <div>
+          <h4>Suivi environnemental</h4>
+          <p>Indicateurs sur les zones sensibles, ressources naturelles et état de l’environnement.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-option" onclick="ouvrirDashboardArcGIS('https://www.arcgis.com/apps/dashboards/ID_DASHBOARD_2', 'Suivi du littoral')">
+        <div class="dashboard-option-icon">🌊</div>
+        <div>
+          <h4>Suivi du littoral</h4>
+          <p>Évolution du trait de côte, risques littoraux et zones côtières.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-option" onclick="ouvrirDashboardArcGIS('https://www.arcgis.com/apps/dashboards/ID_DASHBOARD_3', 'Occupation du sol')">
+        <div class="dashboard-option-icon">🛰️</div>
+        <div>
+          <h4>Occupation du sol</h4>
+          <p>Analyse des changements d’occupation du sol et dynamique territoriale.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-option" onclick="ouvrirDashboardArcGIS('https://www.arcgis.com/apps/dashboards/ID_DASHBOARD_4', 'Indicateurs climatiques')">
+        <div class="dashboard-option-icon">🌦️</div>
+        <div>
+          <h4>Indicateurs climatiques</h4>
+          <p>Pluviométrie, température, sécheresse et tendances climatiques.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Fenêtre d'affichage du dashboard ArcGIS Online -->
+<div id="dashboardViewerModal" class="dashboard-viewer-modal">
+  <div class="dashboard-viewer-content">
+
+    <div class="dashboard-viewer-header">
+      <h3 id="dashboardViewerTitle">Tableau de bord</h3>
+      <button onclick="fermerDashboardArcGIS()" class="dashboard-close">×</button>
+    </div>
+
+    <iframe id="dashboardViewerFrame" src=""></iframe>
+
+  </div>
+</div>
+
+</body>
+</html>

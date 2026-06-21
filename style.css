@@ -1,0 +1,551 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f8f7;
+  color: #1f2933;
+}
+
+/* En-tête */
+.header {
+  background: linear-gradient(90deg, #0f766e, #0b5d8b);
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-zone {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.logo-zone h1 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.logo-zone p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Section accueil */
+.hero {
+  min-height: 420px;
+  background:
+    linear-gradient(rgba(0, 80, 90, 0.65), rgba(0, 80, 90, 0.65)),
+    url("images/mauritanie-littoral.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  color: white;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-content h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #facc15;
+  color: #1f2933;
+}
+
+.btn-primary:hover {
+  background-color: #eab308;
+}
+
+.btn-secondary {
+  background-color: #0f766e;
+  color: white;
+  margin-top: 15px;
+}
+
+.btn-secondary:hover {
+  background-color: #0b5d8b;
+}
+
+/* Sections */
+.section {
+  padding: 60px 40px;
+}
+
+.section-title {
+  text-align: center;
+  color: #0f766e;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #52616b;
+  margin-bottom: 35px;
+}
+
+/* Cartes */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 14px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: 0.3s;
+  border-top: 5px solid #0f766e;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+.card-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #0b5d8b;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #52616b;
+  line-height: 1.6;
+}
+
+/* Fenêtre ArcGIS Online */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background-color: rgba(0,0,0,0.75);
+}
+
+.modal-content {
+  background-color: white;
+  width: 92%;
+  height: 88%;
+  margin: 30px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-header {
+  height: 55px;
+  background-color: #0f766e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+}
+
+.close-btn {
+  background-color: white;
+  color: #0f766e;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #facc15;
+  color: #1f2933;
+}
+
+iframe {
+  width: 100%;
+  height: calc(100% - 55px);
+  border: none;
+}
+
+/* Contact */
+.contact-section {
+  background-color: #e6f4f1;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: #0f766e;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.contact-box {
+  background-color: white;
+  max-width: 650px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.contact-box p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Pied de page */
+.footer {
+  background-color: #0b3d4a;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .logo-zone h1 {
+    font-size: 18px;
+  }
+
+  .hero {
+    padding: 35px 25px;
+  }
+
+  .hero-content h2 {
+    font-size: 28px;
+  }
+
+  .nav {
+    margin-top: 15px;
+  }
+
+  .modal-content {
+    width: 96%;
+    height: 85%;
+    margin: 25px auto;
+  }
+}
+
+
+
+/* ============================= */
+/* Fenêtre liste dashboards */
+/* ============================= */
+
+.dashboard-list-modal {
+  display: none;
+  position: fixed;
+  z-index: 9998;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.dashboard-list-content {
+  width: 780px;
+  max-width: 92%;
+  background: #ffffff;
+  margin: 70px auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+  animation: showDashboardList 0.3s ease;
+}
+
+@keyframes showDashboardList {
+  from {
+    opacity: 0;
+    transform: translateY(-25px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.dashboard-list-header {
+  background: linear-gradient(90deg, #0f766e, #0b5d8b);
+  color: white;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-list-header h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.dashboard-close {
+  background: white;
+  color: #0f766e;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 35px;
+}
+
+.dashboard-close:hover {
+  background: #facc15;
+  color: #1f2933;
+}
+
+.dashboard-options {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+.dashboard-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 18px;
+  background: #f4f8f7;
+  border-radius: 14px;
+  cursor: pointer;
+  border: 1px solid #d6e4e2;
+  transition: 0.3s;
+}
+
+.dashboard-option:hover {
+  background: #e6f4f1;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+  border-color: #0f766e;
+}
+
+.dashboard-option-icon {
+  font-size: 36px;
+  min-width: 45px;
+}
+
+.dashboard-option h4 {
+  margin: 0 0 8px 0;
+  color: #0b5d8b;
+  font-size: 18px;
+}
+
+.dashboard-option p {
+  margin: 0;
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* ============================= */
+/* Fenêtre affichage dashboard */
+/* ============================= */
+
+.dashboard-viewer-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.dashboard-viewer-content {
+  width: 94%;
+  height: 90%;
+  background: white;
+  margin: 25px auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+}
+
+.dashboard-viewer-header {
+  height: 58px;
+  background: linear-gradient(90deg, #0f766e, #0b5d8b);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+.dashboard-viewer-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+#dashboardViewerFrame {
+  width: 100%;
+  height: calc(100% - 58px);
+  border: none;
+}
+
+
+/* Responsive téléphone */
+@media screen and (max-width: 768px) {
+  .dashboard-list-content {
+    margin: 40px auto;
+  }
+
+  .dashboard-options {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-viewer-content {
+    width: 96%;
+    height: 88%;
+    margin: 25px auto;
+  }
+}
+
+
+
+
+
+/* Section accueil avec images en arrière-plan */
+.hero {
+  width: 100%;
+  min-height: 590px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 80px 70px;
+  color: white;
+  overflow: hidden;
+
+  background-image: url("images/image1.jpg");
+  background-size: cover;        /* l'image occupe toute la section */
+  background-position: center;   /* image centrée */
+  background-repeat: no-repeat;
+
+  transition: background-image 1s ease-in-out;
+}
+
+/* Couche sombre pour rendre le texte lisible */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 60, 55, 0.75),
+    rgba(0, 80, 90, 0.55),
+    rgba(0, 0, 0, 0.25)
+  );
+  z-index: 1;
+}
+
+/* Contenu au-dessus de l'image */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.hero-content h2 {
+  font-size: 46px;
+  line-height: 1.25;
+  margin-bottom: 25px;
+  font-weight: 800;
+}
+
+.hero-content p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 780px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #facc15;
+  color: #1f2933;
+  padding: 14px 28px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #eab308;
+}
