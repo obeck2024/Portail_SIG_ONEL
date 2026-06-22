@@ -482,7 +482,7 @@ iframe {
 /* Section accueil avec images en arrière-plan */
 .hero {
   width: 100%;
-  min-height: 500px;
+  min-height: 590px;
   position: relative;
 
   display: flex;
