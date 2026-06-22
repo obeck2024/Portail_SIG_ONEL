@@ -85,8 +85,8 @@ function changerImageAccueil() {
 // Première image au chargement
 changerImageAccueil();
 
-// Changement automatique chaque 4 secondes
-setInterval(changerImageAccueil, 4000);
+// Changement automatique chaque 1.5 secondes
+setInterval(changerImageAccueil, 1500);
 
 
 
