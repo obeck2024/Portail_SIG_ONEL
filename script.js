@@ -85,8 +85,85 @@ function changerImageAccueil() {
 // Première image au chargement
 changerImageAccueil();
 
-// Changement automatique chaque 1.5 secondes
-setInterval(changerImageAccueil, 1500);
+// Changement automatique chaque 4 secondes
+setInterval(changerImageAccueil, 4000);
+
+
+
+
+// Carte modele
+
+function ouvrirListeCartographie() {
+  document.getElementById("cartographieModal").style.display = "block";
+}
+
+function fermerListeCartographie() {
+  document.getElementById("cartographieModal").style.display = "none";
+}
+
+function ouvrirArcGISDepuisCatalogue(url, titre) {
+  document.getElementById("cartographieModal").style.display = "none";
+
+  document.getElementById("arcgisViewerTitle").textContent = titre;
+  document.getElementById("arcgisViewerFrame").src = url;
+  document.getElementById("arcgisViewerModal").style.display = "block";
+}
+
+function fermerArcGISViewer() {
+  document.getElementById("arcgisViewerModal").style.display = "none";
+  document.getElementById("arcgisViewerFrame").src = "";
+}
+
+function filtrerCartes() {
+  const input = document.getElementById("searchCarte");
+  const filter = input.value.toLowerCase();
+  const cartes = document.querySelectorAll(".cartographie-item");
+
+  cartes.forEach(function(carte) {
+    const titre = carte.getAttribute("data-title").toLowerCase();
+    const texte = carte.innerText.toLowerCase();
+
+    if (titre.includes(filter) || texte.includes(filter)) {
+      carte.style.display = "block";
+    } else {
+      carte.style.display = "none";
+    }
+  });
+}
+
+function trierCartes() {
+  const select = document.getElementById("sortCarte");
+  const grid = document.getElementById("listeCartesArcGIS");
+  const cartes = Array.from(grid.querySelectorAll(".cartographie-item"));
+
+  if (select.value === "az") {
+    cartes.sort((a, b) =>
+      a.getAttribute("data-title").localeCompare(b.getAttribute("data-title"))
+    );
+  }
+
+  if (select.value === "za") {
+    cartes.sort((a, b) =>
+      b.getAttribute("data-title").localeCompare(a.getAttribute("data-title"))
+    );
+  }
+
+  cartes.forEach(carte => grid.appendChild(carte));
+}
+
+/* Fermer si on clique à l’extérieur */
+window.addEventListener("click", function(event) {
+  const cartographieModal = document.getElementById("cartographieModal");
+  const arcgisViewerModal = document.getElementById("arcgisViewerModal");
+
+  if (event.target === cartographieModal) {
+    fermerListeCartographie();
+  }
+
+  if (event.target === arcgisViewerModal) {
+    fermerArcGISViewer();
+  }
+});
 
 
 
@@ -95,3 +172,15 @@ setInterval(changerImageAccueil, 1500);
 
 
 
+
+
+
+
+
+function ouvrirApropos() {
+  document.getElementById("aproposModal").style.display = "block";
+}
+
+function fermerApropos() {
+  document.getElementById("aproposModal").style.display = "none";
+}
