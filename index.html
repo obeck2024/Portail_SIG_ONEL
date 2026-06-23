@@ -25,6 +25,7 @@
       <a href="#accueil">Accueil</a>
       <a href="#cartes">Cartes SIG</a>
       <a href="#contact">Contact</a>
+      <a href="#" onclick="ouvrirApropos()">À propos</a>
     </nav>
   </header>
 
@@ -42,48 +43,19 @@
   </div>
 </section>
 
+
   <!-- Section cartes -->
-  <section id="cartes" class="section">
-    <h2 class="section-title">Cartes et applications SIG</h2>
-    <p class="section-subtitle">
-      Cliquez sur une carte pour ouvrir le contenu ArcGIS Online dans le portail.
+<div class="cards-container single-card-container">
+
+  <div class="card" onclick="ouvrirListeCartographie()">
+    <div class="card-icon">🗺️</div>
+    <h3>Cartographie</h3>
+    <p>
+      Accéder aux cartes interactives de l’Observatoire National de l’Environnement et du Littoral.
     </p>
+  </div>
 
-    <div class="cards-container">
-
-      <div class="card" onclick="ouvrirArcGIS('')">
-        <div class="card-icon">🌍</div>
-        <h3>Carte environnementale</h3>
-        <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
-      </div>
-
-      <div class="card" onclick="ouvrirArcGIS('https://experience.arcgis.com/experience/d15487e7f32e4ea882eb65dabee274b3')">
-        <div class="card-icon">🌍</div>
-        <h3>Carte des limites administratives des wilayas de la Mauritanie</h3>
-        <p>Visualisation des limites administratives des wilayas de la Mauritanie, permettant d’identifier la répartition territoriale du pays.</p>
-      </div>
-
-
-      <div class="card" onclick="ouvrirArcGIS('https://experience.arcgis.com/experience/52d8b58100764a82b20e90f68067c6a5')">
-        <div class="card-icon">🌊</div>
-        <h3>Carte de répartition des espèces de poissons</h3>
-        <p>Visualisation des zones côtières, répartition des espèces de poissons et de leurs emplacements.</p>
-      </div>
-
-      <div class="card" onclick="ouvrirListeDashboards()">
-  <div class="card-icon">📊</div>
-  <h3>Tableau de bord</h3>
-  <p>Indicateurs, statistiques et suivi dynamique des données environnementales.</p>
 </div>
-
-      <div class="card" onclick="ouvrirArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/instant/basic/index.html?appid=e577c4aff3bd4158a698b7a291fa35d1')">
-        <div class="card-icon">🗺️</div>
-        <h3>Carte des principales zones d’alimentation des tortues, de nidification des flamants roses et de localisation des puits de pétrole</h3>
-        <p>Cette carte présente les principales zones d’alimentation des tortues marines, les sites de nidification des flamants roses ainsi que l’emplacement des puits de pétrole.</p>
-      </div>
-
-    </div>
-  </section>
 
   <!-- Fenêtre ArcGIS Online -->
   <div id="modalArcGIS" class="modal">
@@ -187,6 +159,151 @@
 
   </div>
 </div>
+
+
+
+<!-- Fenêtre d'affichage contenus cartes -->
+ 
+<!-- Fenêtre liste des cartes -->
+<div id="cartographieModal" class="cartographie-modal">
+  <div class="cartographie-content">
+
+    <div class="cartographie-header">
+      <h3>Catalogue des cartes</h3>
+      <button class="cartographie-close" onclick="fermerListeCartographie()">×</button>
+    </div>
+
+    <div class="cartographie-toolbar">
+      <input
+        type="text"
+        id="searchCarte"
+        placeholder="Rechercher une carte..."
+        onkeyup="filtrerCartes()"
+      >
+
+      <select id="sortCarte" onchange="trierCartes()">
+        <option value="default">Trier par défaut</option>
+        <option value="az">Titre A-Z</option>
+        <option value="za">Titre Z-A</option>
+      </select>
+    </div>
+
+    <div id="listeCartesArcGIS" class="cartographie-grid">
+
+       <div class="card" onclick="ouvrirArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/mapviewer/index.html?webmap=29d94c443201440f8e1594879556b580')">
+        <div class="card-icon">🌍</div>
+        <h3>Carte environnementale</h3>
+        <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
+      </div>
+
+
+       <div class="card" onclick="ouvrirArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/mapviewer/index.html?webmap=29d94c443201440f8e1594879556b580')">
+        <div class="card-icon">🌊</div>
+        <h3>Carte environnementale</h3>
+        <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
+      </div>
+
+
+      <div class="card" onclick="ouvrirArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/mapviewer/index.html?webmap=29d94c443201440f8e1594879556b580')">
+        <div class="card-icon">📊</div>
+        <h3>Carte environnementale</h3>
+        <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
+      </div>
+
+
+      <div class="card" onclick="ouvrirArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/mapviewer/index.html?webmap=29d94c443201440f8e1594879556b580')">
+        <div class="card-icon">🗺️</div>
+        <h3>Carte environnementale</h3>
+        <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
+      </div>
+
+      <div class="card" onclick="ouvrirArcGIS('https://cef-mauritanie.maps.arcgis.com/apps/mapviewer/index.html?webmap=29d94c443201440f8e1594879556b580')">
+        <div class="card-icon">🗺️</div>
+        <h3>Carte environnementale</h3>
+        <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
+      </div>
+
+
+
+      
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Fenêtre d'affichage de la carte ArcGIS Online -->
+<div id="arcgisViewerModal" class="arcgis-viewer-modal">
+  <div class="arcgis-viewer-content">
+
+    <div class="arcgis-viewer-header">
+      <h3 id="arcgisViewerTitle">Carte ArcGIS Online</h3>
+      <button class="cartographie-close" onclick="fermerArcGISViewer()">×</button>
+    </div>
+
+    <iframe id="arcgisViewerFrame" src=""></iframe>
+
+  </div>
+</div>
+
+
+<!-- Fenêtre À propos -->
+<div id="aproposModal" class="apropos-modal">
+  <div class="apropos-content">
+
+    <div class="apropos-header">
+      <h3>À propos de nous</h3>
+      <button class="apropos-close" onclick="fermerApropos()">×</button>
+    </div>
+
+    <div class="apropos-body">
+
+      <div class="apropos-logo">
+        <img src="images/logo_onel.png" alt="Logo ONEL">
+      </div>
+
+      <h2>Observatoire National de l’Environnement et du Littoral</h2>
+
+      <p>
+        L’Observatoire National de l’Environnement et du Littoral est une plateforme
+        dédiée au suivi, à l’analyse et à la valorisation des données environnementales
+        et littorales à travers les outils SIG, la télédétection et les tableaux de bord
+        cartographiques.
+      </p>
+
+      <p>
+        Ce portail SIG permet de centraliser les cartes interactives, les indicateurs,
+        les tableaux de bord et les applications cartographiques afin d’appuyer la prise
+        de décision, le suivi des zones sensibles et la gestion durable du territoire.
+      </p>
+
+      <div class="apropos-grid">
+
+        <div class="apropos-box">
+          <div class="apropos-icon">🌍</div>
+          <h4>Suivi environnemental</h4>
+          <p>Observation des ressources naturelles, zones sensibles et indicateurs environnementaux.</p>
+        </div>
+
+        <div class="apropos-box">
+          <div class="apropos-icon">🌊</div>
+          <h4>Suivi du littoral</h4>
+          <p>Analyse des zones côtières, risques littoraux et dynamiques marines.</p>
+        </div>
+
+        <div class="apropos-box">
+          <div class="apropos-icon">🛰️</div>
+          <h4>Données SIG</h4>
+          <p>Valorisation des données spatiales pour la cartographie et l’analyse territoriale.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
 
 </body>
 </html>
