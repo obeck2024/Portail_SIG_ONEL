@@ -217,14 +217,15 @@
         <p>Application ArcGIS Online dédiée à la consultation et à l’analyse spatiale.</p>
       </div>
 
-      <div class="card" onclick="ouvrirArcGIS('https://experience.arcgis.com/experience/d15487e7f32e4ea882eb65dabee274b3')">
+      <!-- Cette carte s’ouvre dans un nouvel onglet -->
+<div class="card" onclick="ouvrirArcGISNouvelOnglet('https://experience.arcgis.com/experience/d15487e7f32e4ea882eb65dabee274b3')">
   <div class="card-icon">🗺️</div>
   <h3>Carte Limite de Mauritanie</h3>
   <p>Suivi des zones sensibles, ressources naturelles et indicateurs environnementaux.</p>
 </div>
 
 <script>
-  function ouvrirArcGIS(url) {
+  function ouvrirArcGISNouvelOnglet(url) {
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 </script>
